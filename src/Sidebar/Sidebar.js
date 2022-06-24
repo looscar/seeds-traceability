@@ -12,7 +12,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 
 // Icons
-import {AiOutlineBarcode} from 'react-icons/ai';
+import { MdQrCodeScanner } from "react-icons/md";
 import {MdOutlineTableView} from 'react-icons/md';
 
 
@@ -23,7 +23,7 @@ const Sidebar = ({ }) => {
                 <MdOutlineTableView color={'#4F4E4E'} size={24}/>
             </Link>
             <Link to={'/scanner'}>
-                <AiOutlineBarcode color={'#4F4E4E'} size={24}/>
+                <MdQrCodeScanner color={'#4F4E4E'} size={24}/>
             </Link>
         </nav>
     );
