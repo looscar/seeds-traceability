@@ -42,40 +42,35 @@ const Scanner = ({ }) => {
                         <label>Información para cliente</label>
                         <p>Por 1 piezas más alcanza un 25.0% y 25.0% de descuento.</p>
                     </div>
+                    */}
 
                     <div className='padded-block'>
+
                         <div className={'flex-row'}>
-                            <label>Total piezas</label>
-                            <span>27</span>
+                            <label>Proceso Actual</label>
+                            <span>Desgrane</span>
                         </div>
                         <div className={'flex-row'}>
-                            <label>Total precio:</label>
-                            <span>$2,350</span>
+                            <label>Códigos Leídos:</label>
+                            <span>348</span>
                         </div>
                         <div className={'flex-row'}>
-                            <label>Total descuento:</label>
-                            <span>$250.00</span>
-                        </div>
-                        <div className={'flex-row'}>
-                            <label>Envío:</label>
-                            <span>$0.00</span>
-                        </div>
-                        <div className={'flex-row'}>
-                            <label>Total a pagar:</label>
-                            <span>$1,685.00</span>
+                            <label>Códigos por leer</label>
+                            <span>899</span>
                         </div>
 
+                        {/*
                         <Delivery/>
 
                         <Checkbox text={'Es una cotización'}/>
                         <Checkbox text={'Es un apartado'}/>
+                        */}
 
                         <div className={'btns-holder'}>
-                            <Button onClick={() => navigate('/payment')} variant={'red'}>Cobrar venta</Button>
-                            <Button variant={'red-outline'}>Descartar venta</Button>
+                            <Button onClick={() => navigate(-1)} variant={'red'}>Concluir por hoy</Button>
+                            <Button onClick={() => navigate(-1)} variant={'red-outline'}>Volver</Button>
                         </div>
                     </div>
-                    */}
                 </div>
             </div>
         </Template>

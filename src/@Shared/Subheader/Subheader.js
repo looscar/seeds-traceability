@@ -5,21 +5,16 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
 // Actions =>
-import { setModal } from '@Src/Global/Actions';
 
 // Components =>
 import Section from '@Shared/Subheader/Section';
 import Back from '@Shared/Subheader/Back';
-import Button from '@Shared/Button';
 
-// Icons:
-import { MdQrCodeScanner } from "react-icons/md";
-import { BiUserPlus } from "react-icons/bi";
 
 // Router
 import { useNavigate } from 'react-router-dom';
 
-const Subheader = ({ variant,  home: { type }, global: { auth }, setModal }) => {
+const Subheader = ({ variant, children }) => {
     const navigate = useNavigate();
 
     return (
@@ -27,12 +22,7 @@ const Subheader = ({ variant,  home: { type }, global: { auth }, setModal }) => 
             {!variant ?
                 <React.Fragment>
                     <Section/>
-                    {type === 'dashboard' && auth.profile === 'admin' ?
-                        <div className='start-sale-holder'>
-                            <Button onClick={() => navigate('/scanner') }><MdQrCodeScanner/> Iniciar Escáner</Button>
-                            <Button onClick={() => setModal(true) }><BiUserPlus size={24}/> Registrar nuevo Cliente/Lote</Button>
-                        </div>
-                    : null }
+                    {children}
                 </React.Fragment>
             : null }
             {variant === 'with-back' ?
@@ -59,7 +49,6 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
         // Actions
-        setModal,
     }, dispatch);
 }
 

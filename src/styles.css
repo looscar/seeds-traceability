@@ -23,6 +23,22 @@ body ::placeholder {
   color: #EDEDED;
   font-weight: 300;
 }
+body #empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0px;
+  height: auto;
+}
+body #empty h1 {
+  color: #00000035;
+  height: 34px;
+  line-height: 34px;
+  display: block;
+}
+body #empty img {
+  height: 200px;
+}
 body .custom-input, body .custom-textarea {
   display: flex;
   width: 100%;
@@ -758,7 +774,6 @@ body #filters {
   align-items: center;
   margin-top: 20px;
   margin-bottom: 40px;
-  flex: 1;
 }
 body #filters span {
   font-size: 12px;

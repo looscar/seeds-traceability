@@ -21,6 +21,9 @@ import Login from '@Src/Login/Login';
 import Home from '@Src/Home/Home';
 import Scanner from '@Src/Scanner/Scanner';
 
+// Database
+import db from '@Src/Global/DB';
+
 // Redux Store is initialized here =>
 const store = createStore(CombineReducers, applyMiddleware(thunk));
 

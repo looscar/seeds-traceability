@@ -8,6 +8,7 @@ import {connect} from 'react-redux';
 
 // Components =>
 import Table from '@Shared/Table/Table';
+import Empty from '@Shared/Empty';
 
 // Icons
 import { GrCheckbox } from 'react-icons/gr';
@@ -16,9 +17,10 @@ import { GrCheckbox } from 'react-icons/gr';
 import { Link } from 'react-router-dom';
 
 const Grid = ({ }) => {
-
     return (
         <div className='table-holder'>
+            <Empty title={'Aún no existen registros en base de datos.'}/>
+            {/*
             <Table
                 headers={[
                     {'label' : '', 'size' : '3%'},
@@ -55,6 +57,7 @@ const Grid = ({ }) => {
                     ]
                 )}
             />
+            */}
         </div>
     );
 };
