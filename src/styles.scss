@@ -25,6 +25,20 @@ body{
         font-weight: 300;
     }
 
+
+    // LOADING
+    #loading{
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.35;
+        img{
+            width: 90px;
+        }
+    }
+
     // EMPTY
     #empty{
         display: flex;
@@ -44,7 +58,7 @@ body{
     }
 
     // INPUTS & SELECTS & TEXTAREAS
-    .custom-input, .custom-textarea{
+    .custom-input, .custom-textarea, .custom-file{
         display: flex;
         width: 100%;
         flex-direction: column;
@@ -81,11 +95,11 @@ body{
         }
         &.error{
             .field-wrapper{
-                border: 2px solid #157d36;
+                border: 2px solid #CF0043;
                 background-color: #FFF8F9;
             }
             input{
-                color: #157d36;
+                color: #CF0043;
             }
         }
         &.success{
@@ -312,12 +326,13 @@ body{
     // Tables
     .table{
         padding-bottom: 40px;
+        width: 100%;
         .thead{
             .tr{
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
-                padding: 0px 15px 10px 15px;
+                padding: 0px 20px 10px 15px;
                 border-bottom: 1px solid #ECECEC;
                 .th{
                     color: #157d36;
@@ -890,6 +905,18 @@ body{
             &:last-child{
                 margin-right: 0px;
             }
+        }
+    }
+
+
+    // FORM DE CLIENTE
+    #client-form{
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        h1{
+            margin-bottom: 30px;
         }
     }
 }

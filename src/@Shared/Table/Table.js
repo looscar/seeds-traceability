@@ -4,14 +4,18 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
+// Actions
+import { UUID } from '@Src/Global/Actions';
+
 const Table = ({ ...config }) => {
+    let val;
     return (
         <div className='table'>
             <div className='thead'>
                 <div className='tr'>
                     {config.headers.map((th) => {
                         return (
-                            <div className='th' style={{ flexBasis: th.size }}>{th.label}</div>
+                            <div key={UUID()} className='th' style={{ width: th.size }}>{th.label}</div>
                         )
                     })}
                 </div>
@@ -19,11 +23,12 @@ const Table = ({ ...config }) => {
             <div className='tbody'>
                 {config.rows.map((row) => {
                     return (
-                        <div className='tr'>
-                            {row.map((col, index) => {
+                        <div key={UUID()} className='tr'>
+                            {Object.keys(row).map((col, index) => {
+                                val = row[config.headers[index].key];
                                 return (
-                                    <div className='td' style={{ flexBasis: config.headers[index].size }}>
-                                        {col}
+                                    <div key={UUID()} className='td' style={{ width: config.headers[index].size }}>
+                                        {val}
                                     </div>
                                 );
                             })}

@@ -24,6 +24,10 @@ import Scanner from '@Src/Scanner/Scanner';
 // Database
 import db from '@Src/Global/DB';
 
+// Toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 // Redux Store is initialized here =>
 const store = createStore(CombineReducers, applyMiddleware(thunk));
 
@@ -38,6 +42,7 @@ function App() {
 					<Route exact path="/scanner" element={<Scanner/>}/>
 				</Routes>
 			</Router>
+			<ToastContainer />
 		</Provider>
 	);
 };

@@ -23,6 +23,17 @@ body ::placeholder {
   color: #EDEDED;
   font-weight: 300;
 }
+body #loading {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.35;
+}
+body #loading img {
+  width: 90px;
+}
 body #empty {
   display: flex;
   flex-direction: column;
@@ -39,18 +50,18 @@ body #empty h1 {
 body #empty img {
   height: 200px;
 }
-body .custom-input, body .custom-textarea {
+body .custom-input, body .custom-textarea, body .custom-file {
   display: flex;
   width: 100%;
   flex-direction: column;
   margin-bottom: 21px;
 }
-body .custom-input label, body .custom-textarea label {
+body .custom-input label, body .custom-textarea label, body .custom-file label {
   color: "#202020";
   margin-bottom: 8px;
   font-weight: 500;
 }
-body .custom-input .field-wrapper, body .custom-textarea .field-wrapper {
+body .custom-input .field-wrapper, body .custom-textarea .field-wrapper, body .custom-file .field-wrapper {
   display: flex;
   flex-direction: row;
   border: 1px solid #CDEDFF;
@@ -61,7 +72,7 @@ body .custom-input .field-wrapper, body .custom-textarea .field-wrapper {
   padding: 0px 21px;
   overflow: hidden;
 }
-body .custom-input .field-wrapper input, body .custom-input .field-wrapper select, body .custom-input .field-wrapper textarea, body .custom-textarea .field-wrapper input, body .custom-textarea .field-wrapper select, body .custom-textarea .field-wrapper textarea {
+body .custom-input .field-wrapper input, body .custom-input .field-wrapper select, body .custom-input .field-wrapper textarea, body .custom-textarea .field-wrapper input, body .custom-textarea .field-wrapper select, body .custom-textarea .field-wrapper textarea, body .custom-file .field-wrapper input, body .custom-file .field-wrapper select, body .custom-file .field-wrapper textarea {
   width: 100%;
   display: flex;
   flex: 1;
@@ -69,24 +80,24 @@ body .custom-input .field-wrapper input, body .custom-input .field-wrapper selec
   border: none;
   color: #202020;
 }
-body .custom-input .field-wrapper select, body .custom-textarea .field-wrapper select {
+body .custom-input .field-wrapper select, body .custom-textarea .field-wrapper select, body .custom-file .field-wrapper select {
   width: 140% !important;
 }
-body .custom-input .field-wrapper svg, body .custom-textarea .field-wrapper svg {
+body .custom-input .field-wrapper svg, body .custom-textarea .field-wrapper svg, body .custom-file .field-wrapper svg {
   cursor: pointer;
 }
-body .custom-input.error .field-wrapper, body .custom-textarea.error .field-wrapper {
-  border: 2px solid #157d36;
+body .custom-input.error .field-wrapper, body .custom-textarea.error .field-wrapper, body .custom-file.error .field-wrapper {
+  border: 2px solid #CF0043;
   background-color: #FFF8F9;
 }
-body .custom-input.error input, body .custom-textarea.error input {
-  color: #157d36;
+body .custom-input.error input, body .custom-textarea.error input, body .custom-file.error input {
+  color: #CF0043;
 }
-body .custom-input.success .field-wrapper, body .custom-textarea.success .field-wrapper {
+body .custom-input.success .field-wrapper, body .custom-textarea.success .field-wrapper, body .custom-file.success .field-wrapper {
   border: 2px solid #16AC69;
   background-color: #FFF8F9;
 }
-body .custom-input.success input, body .custom-textarea.success input {
+body .custom-input.success input, body .custom-textarea.success input, body .custom-file.success input {
   color: #2B8519;
 }
 body .custom-textarea .field-wrapper {
@@ -284,12 +295,13 @@ body .flex-row {
 }
 body .table {
   padding-bottom: 40px;
+  width: 100%;
 }
 body .table .thead .tr {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0px 15px 10px 15px;
+  padding: 0px 20px 10px 15px;
   border-bottom: 1px solid #ECECEC;
 }
 body .table .thead .tr .th {
@@ -794,6 +806,15 @@ body #filters button {
 }
 body #filters button:last-child {
   margin-right: 0px;
+}
+body #client-form {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+body #client-form h1 {
+  margin-bottom: 30px;
 }
 
 /*# sourceMappingURL=styles.css.map */
