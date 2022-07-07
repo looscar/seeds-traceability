@@ -1,7 +1,7 @@
 import update from 'immutability-helper';
 
 export const global = (state = {
-    'auth'     : {'profile' : 'admin'},
+    'auth'     : (localStorage.getItem('auth')) ? JSON.parse(localStorage.getItem('auth')) : false,
     'route'    : '',
     'modal'    : false,
     'sidepanel': false,

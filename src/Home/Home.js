@@ -11,7 +11,7 @@ import Dashboard from '@Src/Dashboard/Dashboard';
 
 const Home = ({ global: { auth } }) => {
     return (
-        auth.profile === 'admin' ? <Dashboard/> : <b>Panel de operador</b>
+        auth.profile === 'admin' ? <Dashboard/> : <b>Panel de {JSON.stringify(auth)}</b>
     );
 };
 

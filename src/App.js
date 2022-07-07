@@ -1,17 +1,9 @@
 import './styles.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Redux =>
-import { createStore, applyMiddleware } from 'redux';
-
-// Thunk =>
-import thunk from 'redux-thunk';
-
-// Reducers =>
-import CombineReducers from '@Src/combine-reducers';
-
-// Provider =>
-import {Provider} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
 
 // Router
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -22,29 +14,51 @@ import Home from '@Src/Home/Home';
 import Scanner from '@Src/Scanner/Scanner';
 
 // Database
-import db from '@Src/Global/DB';
+import { db } from '@Src/Global/DB';
 
-// Toastify
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-
-// Redux Store is initialized here =>
-const store = createStore(CombineReducers, applyMiddleware(thunk));
+// Actions
+import { Encrypt } from './Global/Actions';
 
 
-function App() {
+const App = ({ global: { auth }}) => {
+	useEffect(() => {
+		// Create initial accounts:
+		db.__auth__.bulkPut([
+			{ uuid: "1bb98540-0d9d-3061-ebee-a29fa4cab529", username: 'diego.mendizabal', password: Encrypt('seed-harvest-0775'), firstname : 'Diego', lastname : 'Mendizabal', profile: 'admin' },
+			{ uuid: "7e42ca0c-8e0b-5cc8-706c-975808dd0a46", username: 'looscar', password: Encrypt('looscar'), firstname : 'Oscar', lastname : 'López', profile: 'admin' },
+		]);
+	}, []);
+
+
 	return (
-		<Provider store={store}>
-			<Router>
-				<Routes>
-                    <Route exact path="/" element={<Login/>}/>
-					<Route exact path="/home" element={<Home/>}/>
-					<Route exact path="/scanner" element={<Scanner/>}/>
-				</Routes>
-			</Router>
-			<ToastContainer />
-		</Provider>
+		<Router>
+			<Routes>
+				{!auth && window.location.pathname !== '/' ?
+					// Redirect to login until authenticate:
+					<Route path="*" element={<Login/>}/>
+				:
+					// Allow access to system:
+					<React.Fragment>
+						<Route exact path="/" element={(auth) ? <Home/> : <Login/>}/>
+						<Route exact path="/scanner" element={<Scanner/>}/>
+					</React.Fragment>
+				}
+			</Routes>
+		</Router>
 	);
 };
 
-export default App;
+
+// mapStateToProps =>
+function mapStateToProps(state){
+    return state;
+}
+
+// Bind actions to be used along redux =>
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        // Actions
+    }, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(App);

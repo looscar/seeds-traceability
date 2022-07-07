@@ -8,12 +8,7 @@ db.version(1).stores({
     __records__: 'id',
 });
 
-
-/*
-Ejemplo de tabla con uuid auto-generado
+// Authorized Users
 db.version(1).stores({
-    rows: '$$uuid, client',
+    __auth__: 'uuid, username',
 });
-*/
-
-//db.files.add({'created': Date.now(), 'user': 1});

@@ -9,14 +9,19 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 // Actions =>
+import { logIn } from '@Src/Login/Actions';
 
 // Assets:
 import Logo from '@Assets/logo.webp';
+
+// Toastify:
+import { toast } from "react-toastify";
 
 // Components:
 import Input from '@Shared/Input';
 import Checkbox from '@Shared/Checkbox';
 import Button from '@Shared/Button';
+import Loading from '@Shared/Loading';
 
 // Icons
 import { IoEyeOffSharp } from "react-icons/io5";
@@ -24,7 +29,7 @@ import { IoEyeOffSharp } from "react-icons/io5";
 // Router
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ }) => {
+const Login = ({ logIn }) => {
     const navigate = useNavigate();
 
     // Form validation schema:
@@ -42,8 +47,13 @@ const Login = ({ }) => {
                 password: '',
             }}
             validationSchema={YupSchema}
-            onSubmit={(values,  {setSubmitting}) =>{
-                navigate('/home');
+            onSubmit={(values,  {setSubmitting, setFieldValue}) =>{
+                logIn(values).then(() => {
+                    setSubmitting(false);
+                }).catch((error) => {
+                    toast.warn(error);
+                    setSubmitting(false);
+                });
             }}
         >
             {({
@@ -60,43 +70,37 @@ const Login = ({ }) => {
                         <img src={Logo}/>
                         <h1>Inicia sesión</h1>
                         <Input
-                            label      = {'Usuario o correo electrónico'}
-                            placeholder= {'Usuario/Correo:'}
-                            name       = {'username'}
-                            values     = {values}
-                            onChange   = {handleChange}
-                            onFocus    = {handleBlur}
-                            errors     = {errors}
-                            touched    = {touched}
+                            label        = {'Usuario o correo electrónico'}
+                            placeholder  = {'Usuario/Correo:'}
+                            name         = {'username'}
+                            values       = {values}
+                            onChange     = {handleChange}
+                            onFocus      = {handleBlur}
+                            errors       = {errors}
+                            touched      = {touched}
+                            autoComplete = 'new-password'
                         />
-
                         <Input
-                            label           = {'Contraseña'}
-                            placeholder     = {'Contraseña:'}
-                            name            = {'password'}
-                            type            = {'password'}
-                            values          = {values}
-                            onChange        = {handleChange}
-                            errors          = {errors}
-                            onFocus         = {handleBlur}
-                            touched         = {touched}
-                            icon            = {<IoEyeOffSharp size={21} color={'#6C6C6C'}/>}
+                            label        = {'Contraseña'}
+                            placeholder  = {'Contraseña:'}
+                            name         = {'password'}
+                            type         = {'password'}
+                            values       = {values}
+                            onChange     = {handleChange}
+                            errors       = {errors}
+                            onFocus      = {handleBlur}
+                            touched      = {touched}
+                            autoComplete = 'new-password'
+                            icon         = {<IoEyeOffSharp size={21} color={'#6C6C6C'}/>}
                         />
                         <Checkbox text={'Recordar mis datos de inicio de sesión'}/>
-
-                        {/*
-                        <div className='forgot-holder'>
-                            <Button variant={'link'}>Olvidé mi contraseña</Button>
-                        </div>
-                        */}
                         <div className='button-holder'>
-                            <Button onClick={handleSubmit} variant={'red'}>Iniciar sesión</Button>
+                            {!isSubmitting ?
+                                <Button onClick={handleSubmit} variant={'red'}>Iniciar sesión</Button>
+                            :
+                                <Loading/>
+                            }
                         </div>
-                        {/*
-                        <div className='button-holder'>
-                            <Button variant={'red-outline'}>Registar nuevo usuario</Button>
-                        </div>
-                        */}
                     </div>
 
                     <div className='footer'>Todos los derechos reservados.</div>
@@ -115,6 +119,7 @@ function mapStateToProps(state){
 function matchDispatchToProps(dispatch){
     return bindActionCreators({
         // Actions
+        logIn,
     }, dispatch);
 }
 

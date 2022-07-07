@@ -1,3 +1,6 @@
+// Crypto
+import Crypto from 'crypto-js';
+
 // UUID Generator:
 export function UUID() {
     function s4() {
@@ -50,3 +53,16 @@ export function setModal(modal){
         });
     }
 }
+
+
+// Encrypt & Decrypt
+const cipherKey = 'seeds-traceability-000';
+
+export function Encrypt(string){
+    return Crypto.AES.encrypt(string, cipherKey).toString();
+};
+
+export function Decrypt(hash){
+    var bytes  = Crypto.AES.decrypt(hash, cipherKey);
+    return bytes.toString(Crypto.enc.Utf8);
+};

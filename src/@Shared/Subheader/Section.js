@@ -4,9 +4,8 @@ import React, { useEffect } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-// Actions =>
-
-// Components =>
+// Moment
+import moment from 'moment';
 
 // Icons
 import {MdOutlineDashboard} from 'react-icons/md';
@@ -20,7 +19,7 @@ const Store = ({ }) => {
                 <h2>Reportes</h2>
             </div>
             <div className='section-row'>
-                <span>30/Jun/22</span>
+                <span>{moment().format("LLLL")}</span>
             </div>
         </div>
     );
