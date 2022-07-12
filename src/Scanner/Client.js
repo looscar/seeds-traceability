@@ -7,12 +7,15 @@ import {connect} from 'react-redux';
 // Actions =>
 
 // Components =>
-import Button from '@Shared/Button';
 
 // Icons:
 import { FaUserAlt } from "react-icons/fa";
 
+// Routing
+import { useParams } from 'react-router-dom';
+
 const Client = ({ }) => {
+    const params = useParams();
     return (
         <div className='client-card'>
             <div className={'box'}>
@@ -24,22 +27,18 @@ const Client = ({ }) => {
                 <div className='col col-info'>
                     <div className='flex-row'>
                         <label>Cliente</label>
-                        <span>Agroindustrias Stark</span>
+                        <span>{params.cliente}</span>
                     </div>
                     <div className='flex-row'>
-                        <label>E-mail</label>
-                        <span>tony@stark.com</span>
-                    </div>
-                    <div className='flex-row'>
-                        <label>Teléfono:</label>
-                        <span>12 34 56 78 90</span>
+                        <label>Proceso</label>
+                        <span>{params.proceso}</span>
                     </div>
                 </div>
 
                 <div className='col col-folio'>
-                    <div className='flex-row'>
-                        <label>Códigos</label>
-                        <span>1,234</span>
+                <div className='flex-row'>
+                        <label>Fecha</label>
+                        <span>11/07/2022</span>
                     </div>
                 </div>
             </div>

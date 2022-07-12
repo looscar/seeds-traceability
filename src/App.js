@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // Components
 import Login from '@Src/Login/Login';
 import Home from '@Src/Home/Home';
+import StartScanner from '@Src/Scanner/Index';
 import Scanner from '@Src/Scanner/Scanner';
 
 // Database
@@ -40,7 +41,8 @@ const App = ({ global: { auth }}) => {
 					// Allow access to system:
 					<React.Fragment>
 						<Route exact path="/" element={(auth) ? <Home/> : <Login/>}/>
-						<Route exact path="/scanner" element={<Scanner/>}/>
+						<Route exact path="/scanner" element={<StartScanner/>}/>
+						<Route exact path="/scanner/:cliente/:proceso" element={<Scanner/>}/>
 					</React.Fragment>
 				}
 			</Routes>

@@ -949,4 +949,60 @@ body{
             margin-bottom: 30px;
         }
     }
+
+    // BEFORE STARTING SCANNER
+    #before-scanner{
+        padding: 40px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .flex-row{
+            .custom-input{
+                flex-basis: 20%;
+                margin: 0px;
+            }
+            .process-selector{
+                flex-basis: 45%;
+                position: relative;
+                label{
+                    display: block;
+                    font-weight: 500;
+                    margin-bottom: 10px;
+                }
+                .process-btns{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    .btn{
+                        flex-basis: 48.5% !important;
+                        &:nth-child(1), &:nth-child(2){
+                            margin-bottom: 20px;
+                        }
+                        &.active{
+                            font-weight: 400;
+                        }
+                    }
+                }
+                &::before, &::after{
+                    display: block;
+                    position: absolute;
+                    content: ' ';
+                    width: 1px;
+                    height: 100%;
+                    top:0px;
+                    left: -50px;
+                    background-color: #00000009;
+                }
+                &::after{
+                    left: unset;
+                    right: -50px;
+                }
+            }
+            .btn{
+                flex-basis: 20%;
+                margin: 0px;
+            }
+        }
+    }
 }

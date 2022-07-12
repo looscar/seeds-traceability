@@ -14,14 +14,14 @@ import Back from '@Shared/Subheader/Back';
 // Router
 import { useNavigate } from 'react-router-dom';
 
-const Subheader = ({ variant, children }) => {
+const Subheader = ({ variant, children, title = 'Reportes' }) => {
     const navigate = useNavigate();
 
     return (
         <div id="subheader" className={variant}>
             {!variant ?
                 <React.Fragment>
-                    <Section/>
+                    <Section title={title}/>
                     {children}
                 </React.Fragment>
             : null }

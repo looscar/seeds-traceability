@@ -846,5 +846,57 @@ body #client-form {
 body #client-form h1 {
   margin-bottom: 30px;
 }
+body #before-scanner {
+  padding: 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+body #before-scanner .flex-row .custom-input {
+  flex-basis: 20%;
+  margin: 0px;
+}
+body #before-scanner .flex-row .process-selector {
+  flex-basis: 45%;
+  position: relative;
+}
+body #before-scanner .flex-row .process-selector label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+body #before-scanner .flex-row .process-selector .process-btns {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+body #before-scanner .flex-row .process-selector .process-btns .btn {
+  flex-basis: 48.5% !important;
+}
+body #before-scanner .flex-row .process-selector .process-btns .btn:nth-child(1), body #before-scanner .flex-row .process-selector .process-btns .btn:nth-child(2) {
+  margin-bottom: 20px;
+}
+body #before-scanner .flex-row .process-selector .process-btns .btn.active {
+  font-weight: 400;
+}
+body #before-scanner .flex-row .process-selector::before, body #before-scanner .flex-row .process-selector::after {
+  display: block;
+  position: absolute;
+  content: " ";
+  width: 1px;
+  height: 100%;
+  top: 0px;
+  left: -50px;
+  background-color: #00000009;
+}
+body #before-scanner .flex-row .process-selector::after {
+  left: unset;
+  right: -50px;
+}
+body #before-scanner .flex-row .btn {
+  flex-basis: 20%;
+  margin: 0px;
+}
 
 /*# sourceMappingURL=styles.css.map */

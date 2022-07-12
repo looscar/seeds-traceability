@@ -4,45 +4,33 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-// Actions =>
-
 // Components =>
 import Table from '@Shared/Table/Table';
+import Loading from '@Shared/Loading';
+import Empty from '@Shared/Empty';
 
 // Icons
 import { GrCheckbox } from 'react-icons/gr';
 
-// Router
-import { Link } from 'react-router-dom';
-
-const Grid = ({ }) => {
-
+const Grid = ({ records }) => {
     return (
         <div className='table-holder'>
-            <Table
-                headers={[
-                    {'label' : '', 'size' : '10%'},
-                    {'label' : 'ID Surco', 'size' : '20%'},
-                    {'label' : 'Parcela', 'size' : '10%'},
-                    {'label' : 'F. Siembra', 'size' : '20%'},
-                    {'label' : 'Desgrane', 'size' : '10%'},
-                    {'label' : 'Humedad', 'size' : '10%'},
-                    {'label' : 'Peso', 'size' : '10%'},
-                    {'label' : 'Empaquetado', 'size' : '10%'},
-                ]}
-                rows={Array(100).fill(
-                    [
-                        <GrCheckbox size={16}/>,
-                        'S-123-ABC',
-                        'P1',
-                        '30/Jun/22',
-                        'D1',
-                        '0.12',
-                        '112g',
-                        '#12',
-                    ]
-                )}
-            />
+            {records  ?
+                records.length > 0 ?
+                    <Table
+                        headers={[
+                            {'key': 'id', 'label' : 'ID Surco', 'size' : '10%'},
+                            {'key': 'parcela', 'label' : 'Parcela', 'size' : '20%'},
+                            {'key': 'siembra', 'label' : 'F. Siembra', 'size' : '10%'},
+                            {'key': 'desgrane', 'label' : 'Desgrane', 'size' : '20%'},
+                            {'key': 'humedad', 'label' : 'Humedad', 'size' : '10%'},
+                            {'key': 'peso', 'label' : 'Peso', 'size' : '10%'},
+                            {'key': 'empaquetado', 'label' : 'Empaquetado', 'size' : '10%'},
+                        ]}
+                        rows={records}
+                    />
+                : <Empty title={'No se encontraron registros para este cliente'}/>
+            : <Loading/>}
         </div>
     );
 };

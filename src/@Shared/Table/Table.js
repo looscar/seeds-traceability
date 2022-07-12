@@ -24,10 +24,10 @@ const Table = ({ ...config }) => {
                 {config.rows.map((row) => {
                     return (
                         <div key={UUID()} className='tr'>
-                            {Object.keys(row).map((col, index) => {
-                                val = row[config.headers[index].key];
+                            {config.headers.map((h) => {
+                                val = row[h.key];
                                 return (
-                                    <div key={UUID()} className='td' style={{ width: config.headers[index].size }}>
+                                    <div key={UUID()} className='td' style={{ width: h.size }}>
                                         {val}
                                     </div>
                                 );

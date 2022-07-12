@@ -19,7 +19,7 @@ import {MdOutlineTableView} from 'react-icons/md';
 const Sidebar = ({ }) => {
     return (
         <nav id="sidebar">
-            <Link to={'/home'}>
+            <Link to={'/'}>
                 <MdOutlineTableView color={'#4F4E4E'} size={24}/>
             </Link>
             <Link to={'/scanner'}>

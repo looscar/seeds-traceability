@@ -10,13 +10,13 @@ import moment from 'moment';
 // Icons
 import {MdOutlineDashboard} from 'react-icons/md';
 
-const Store = ({ }) => {
+const Store = ({ title }) => {
 
     return (
         <div className='section-card'>
             <div className='section-row'>
                 <MdOutlineDashboard color={'#FC0052'} size={24}/>
-                <h2>Reportes</h2>
+                <h2>{title}</h2>
             </div>
             <div className='section-row'>
                 <span>{moment().format("LLLL")}</span>

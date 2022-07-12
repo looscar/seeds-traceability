@@ -27,7 +27,7 @@ time, mark, audio, video {
 /* make sure to set some focus styles for accessibility */
 *:focus, a:focus {
     outline: none !important;
-    
+
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -174,7 +174,7 @@ form {
  */
 
 fieldset {
-    border: 1px solid #c0c0c0;
+    border: none;
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
 }
@@ -437,7 +437,7 @@ input[type="text"],input[type="number"],input[type="email"],input[type="password
     column-rule-style : none;
     column-rule-width : none;
     column-span : 1;
-    column-width : auto; 
+    column-width : auto;
     content : normal;
     counter-increment : none;
     counter-reset : none;

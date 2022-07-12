@@ -4,7 +4,8 @@ import React from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 
-// Components
+// Actions
+import { UUID } from '@Src/Global/Actions';
 
 // Assets
 import { FiCheck } from "react-icons/fi";
@@ -31,7 +32,7 @@ const Select = ({ ...config }) => {
                     {config.options ?
                         config.options.map((opt) => {
                             return (
-                                <option value={opt.value}>{opt.label}</option>
+                                <option key={UUID()} value={opt.value}>{opt.label}</option>
                             )
                         })
                     : null }
