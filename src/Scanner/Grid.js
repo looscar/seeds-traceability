@@ -12,22 +12,26 @@ import Empty from '@Shared/Empty';
 // Icons
 import { GrCheckbox } from 'react-icons/gr';
 
-const Grid = ({ records }) => {
+const Grid = ({ records, proceso }) => {
+
+    const colSize = (100 / 7);
+
     return (
         <div className='table-holder'>
             {records  ?
                 records.length > 0 ?
                     <Table
                         headers={[
-                            {'key': 'id', 'label' : 'ID Surco', 'size' : '10%'},
-                            {'key': 'parcela', 'label' : 'Parcela', 'size' : '20%'},
-                            {'key': 'siembra', 'label' : 'F. Siembra', 'size' : '10%'},
-                            {'key': 'desgrane', 'label' : 'Desgrane', 'size' : '20%'},
-                            {'key': 'humedad', 'label' : 'Humedad', 'size' : '10%'},
-                            {'key': 'peso', 'label' : 'Peso', 'size' : '10%'},
-                            {'key': 'empaquetado', 'label' : 'Empaquetado', 'size' : '10%'},
+                            {'key': 'id', 'label' : 'ID Surco', 'size' : colSize+'%'},
+                            {'key': 'parcela', 'label' : 'Parcela', 'size' : colSize+'%'},
+                            {'key': 'siembra', 'label' : 'F. Siembra', 'size' : colSize+'%'},
+                            {'key': 'desgrane', 'label' : 'Desgrane', 'size' : colSize+'%'},
+                            {'key': 'humedad', 'label' : 'Humedad', 'size' : colSize+'%'},
+                            {'key': 'peso', 'label' : 'Peso', 'size' : colSize+'%'},
+                            {'key': 'empaquetado', 'label' : 'Empaquetado', 'size' : colSize+'%'},
                         ]}
                         rows={records}
+                        proceso={proceso}
                     />
                 : <Empty title={'No se encontraron registros para este cliente'}/>
             : <Loading/>}

@@ -5,6 +5,9 @@ body {
   font-weight: 400;
   font-size: 14px;
 }
+body fieldset {
+  border: none;
+}
 body ::-webkit-scrollbar {
   width: 4px;
   /* width of the entire scrollbar */
@@ -320,6 +323,9 @@ body .table .tbody .tr {
 }
 body .table .tbody .tr:nth-child(2n) {
   background-color: #FBFBFB;
+}
+body .table .tbody .tr.isread {
+  background-color: #dcf2ff;
 }
 body .table .tbody .tr .td {
   display: flex;
@@ -765,6 +771,14 @@ body #section .right-side .padded-block {
 body #section .right-side .product-scanner {
   padding: 0px 20px;
   margin-bottom: 20px;
+}
+body #section .right-side .product-scanner .form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body #section .right-side .product-scanner .form-row .custom-input {
+  width: 45%;
 }
 body #section .right-side .flex-row {
   margin-bottom: 12px;

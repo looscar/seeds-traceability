@@ -26,6 +26,9 @@ const Scanner = ({ }) => {
     const navigate = useNavigate();
     const params = useParams();
     const [records, setRecords] = useState(false);
+    const [read, setRead] = useState(document.querySelectorAll('.tr.isread').length);
+    const [pending, setPending] = useState(document.querySelectorAll('.tbody .tr:not(.isread)').length);
+
     useEffect(() => {
         // Obtenemos records del cliente especificado por parámetro:
         db.__records__.where({'cliente' :  params.cliente}).toArray().then((res) => {
@@ -34,43 +37,44 @@ const Scanner = ({ }) => {
     }, []);
 
 
+    const callBack = (res) => {
+        setRecords(res);
+        setRead(document.querySelectorAll('.tr.isread').length);
+        setPending(document.querySelectorAll('.tbody .tr:not(.isread)').length);
+    }
+
+
     return (
         <Template>
             <div id="section">
                 <div className='left-side'>
                     <Subheader variant={'only-back'}/>
                     <Client/>
-                    <Grid records={records}/>
+                    <Grid records={records} proceso={params.proceso.toLowerCase()}/>
                 </div>
                 <div className='right-side'>
                     {records ?
                         records.length > 0 ?
                             <React.Fragment>
-                                <Form/>
+                                <Form callBack={callBack} records={records}/>
                                 <div className='padded-block'>
-
                                     <div className={'flex-row'}>
                                         <label>Proceso Actual</label>
                                         <span>Desgrane</span>
                                     </div>
                                     <div className={'flex-row'}>
-                                        <label>Códigos Leídos:</label>
-                                        <span>348</span>
+                                        <label>IDs Totales:</label>
+                                        <span>{records.length}</span>
                                     </div>
                                     <div className={'flex-row'}>
-                                        <label>Códigos por leer</label>
-                                        <span>899</span>
+                                        <label>IDs Leídos:</label>
+                                        <span>{read}</span>
                                     </div>
-
-                                    {/*
-                                    <Delivery/>
-
-                                    <Checkbox text={'Es una cotización'}/>
-                                    <Checkbox text={'Es un apartado'}/>
-                                    */}
-
+                                    <div className={'flex-row'}>
+                                        <label>IDs por leer</label>
+                                        <span>{pending}</span>
+                                    </div>
                                     <div className={'btns-holder'}>
-                                        <Button onClick={() => navigate(-1)} variant={'red'}>Concluir por hoy</Button>
                                         <Button onClick={() => navigate(-1)} variant={'red-outline'}>Volver</Button>
                                     </div>
                                 </div>

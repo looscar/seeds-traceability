@@ -21,12 +21,11 @@ const Input = ({ ...config }) => {
         inputStyles = 'custom-input success';
         statusIcon = <FiCheck color={'#2B8519'} size={18}/>;
     }
-
     return (
         <fieldset className={inputStyles}>
             {config.label ? <label>{config.label}</label> : null }
             <div className="field-wrapper">
-                <input {...config}/>
+                <input {...config} value={config.values[config.name]}/>
                 {config.icon && statusIcon === null ? config.icon : statusIcon}
             </div>
         </fieldset>

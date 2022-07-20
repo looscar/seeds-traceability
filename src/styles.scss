@@ -6,6 +6,10 @@ body{
     font-weight: 400;
     font-size: 14px;
 
+    fieldset{
+        border: none;
+    }
+
     // SCROLLBARS
     ::-webkit-scrollbar {
         width: 4px;               /* width of the entire scrollbar */
@@ -350,6 +354,9 @@ body{
                 padding: 0px 15px;
                 &:nth-child(2n){
                     background-color: #FBFBFB;
+                }
+                &.isread{
+                    background-color: #dcf2ff;
                 }
                 .td{
                     display: flex;
@@ -853,6 +860,14 @@ body{
             .product-scanner{
                 padding: 0px 20px;
                 margin-bottom: 20px;
+                .form-row{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .custom-input{
+                        width: 45%;
+                    }
+                }
             }
             .flex-row{
                 margin-bottom: 12px;

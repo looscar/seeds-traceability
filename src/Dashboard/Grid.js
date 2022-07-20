@@ -18,6 +18,7 @@ const Grid = ({ getRecords, dashboard: { records }}) => {
         getRecords();
     }, []);
 
+    const colSize = (100 / 16);
 
     return (
         <div className='table-holder'>
@@ -29,19 +30,22 @@ const Grid = ({ getRecords, dashboard: { records }}) => {
                 :
                     <Table
                         headers={[
-                            {'key': 'id', 'label' : 'ID Surco', 'size' : '8%'},
-                            {'key': 'año', 'label' : 'Año', 'size' : '5%'},
-                            {'key': 'parcela', 'label' : 'Parcela', 'size' : '5%'},
-                            {'key': 'coordenadas', 'label' : 'Coordenadas', 'size' : '12%'},
-                            {'key': 'longitud', 'label' : 'Longitud', 'size' : '5%'},
-                            {'key': 'siembra', 'label' : 'F. Siembra', 'size' : '7%'},
-                            {'key': 'mhl', 'label' : 'M/H/L', 'size' : '5%'},
-                            {'key': 'material', 'label' : 'T. Material', 'size' : '10%'},
-                            {'key': 'cosecha', 'label' : 'T. Cosecha', 'size' : '10%'},
-                            {'key': 'desgrane', 'label' : 'Desgrane', 'size' : '10%'},
-                            {'key': 'humedad', 'label' : 'Humedad', 'size' : '10%'},
-                            {'key': 'peso', 'label' : 'Peso', 'size' : '5%'},
-                            {'key': 'empaquetado', 'label' : 'Empaquetado', 'size' : '8%'},
+                            {'key': 'id', 'label' : 'ID', 'size' : colSize+'%'},
+                            {'key': 'año', 'label' : 'Año', 'size' : colSize+'%'},
+                            {'key': 'parcela', 'label' : 'Parcela', 'size' : colSize+'%'},
+                            {'key': 'seccion', 'label' : 'Sección', 'size' : colSize+'%'},
+                            {'key': 'servicio', 'label' : 'Servicio', 'size' : colSize+'%'},
+                            {'key': 'coordenadas', 'label' : 'Coordenadas', 'size' : colSize+'%'},
+                            {'key': 'mhl', 'label' : 'M/H/L', 'size' : colSize+'%'},
+                            {'key': 'nbk', 'label' : 'NB K', 'size' : colSize+'%'},
+                            {'key': 'longitud', 'label' : 'Longitud', 'size' : colSize+'%'},
+                            {'key': 'siembra', 'label' : 'F. Siembra', 'size' : colSize+'%'},
+                            {'key': 'bolsas', 'label' : 'Bolsas Macho', 'size' : colSize+'%'},
+                            {'key': 'cosecha', 'label' : 'Cosecha', 'size' : colSize+'%'},
+                            {'key': 'desgrane', 'label' : 'Desgrane', 'size' : colSize+'%'},
+                            {'key': 'humedad', 'label' : 'Humedad', 'size' : colSize+'%'},
+                            {'key': 'peso', 'label' : 'Peso', 'size' : colSize+'%'},
+                            {'key': 'empaquetado', 'label' : 'Empaquetado', 'size' : colSize+'%'},
                         ]}
                         rows={records}
                     />

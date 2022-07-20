@@ -10,14 +10,12 @@ export function getRecords(){
             }
         });
         db.__records__.toArray().then((res) => {
-            setTimeout(() => {
-                dispatch({
-                    type : 'MERGE-DASHBOARD-STATES',
-                    payload : {
-                        'records' : res,
-                    }
-                });
-            }, 1000);
+            dispatch({
+                type : 'MERGE-DASHBOARD-STATES',
+                payload : {
+                    'records' : res,
+                }
+            });
         });
     }
 }

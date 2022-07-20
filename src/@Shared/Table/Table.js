@@ -9,6 +9,7 @@ import { UUID } from '@Src/Global/Actions';
 
 const Table = ({ ...config }) => {
     let val;
+    let isread;
     return (
         <div className='table'>
             <div className='thead'>
@@ -22,8 +23,12 @@ const Table = ({ ...config }) => {
             </div>
             <div className='tbody'>
                 {config.rows.map((row) => {
+                    isread = '';
+                    if(config['proceso'] && row[config['proceso']]){
+                        isread = ' isread';
+                    }
                     return (
-                        <div key={UUID()} className='tr'>
+                        <div key={UUID()} className={'tr' + isread}>
                             {config.headers.map((h) => {
                                 val = row[h.key];
                                 return (

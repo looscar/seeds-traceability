@@ -45,9 +45,6 @@ const Index = ({ }) => {
                     });
                 }
             });
-
-            console.log('Clients', _clients);
-
             setClients(_clients);
         });
     }, [])
@@ -86,9 +83,6 @@ const Index = ({ }) => {
         },
     ];
 
-
-
-
     return (
         <Formik
             initialValues={{
@@ -120,6 +114,7 @@ const Index = ({ }) => {
                                 <Select
                                     label        = {'Seleccionar cliente'}
                                     name         = {'client'}
+                                    value        = {values.client}
                                     values       = {values}
                                     onChange     = {handleChange}
                                     onFocus      = {handleBlur}
@@ -127,7 +122,6 @@ const Index = ({ }) => {
                                     touched      = {touched}
                                     options      = {clients}
                                 />
-
                                 <div className='process-selector'>
                                     <label>Sdeleccionar proceso:</label>
                                     <div className='process-btns'>

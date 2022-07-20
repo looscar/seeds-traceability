@@ -34,13 +34,17 @@ const Form = ({ setModal, getRecords }) => {
         'id',
         'año',
         'parcela',
+        'seccion',
+        'surco',
+        'servicio',
         'coordenadas',
+        'mhl',
+        'nbk',
         'longitud',
         'siembra',
-        'mhl',
-        'material',
-        'cosecha',
+        'eg',
         'bolsas',
+        'cosecha',
         'desgrane',
         'humedad',
         'peso',
@@ -173,7 +177,7 @@ const Form = ({ setModal, getRecords }) => {
                         icon            = {<SiMicrosoftexcel color= {'#007FC7'} size= {18}/>}
                     />
 
-                    <Checkbox text="Sobreescribir información (no sobreescribe información de procesos)"/>
+                    {/*<Checkbox text="Sobreescribir información (no sobreescribe información de procesos)"/>*/}
 
                     {(isValid && dirty) ?
                         !isSubmitting ?
